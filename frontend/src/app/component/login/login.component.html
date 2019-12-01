@@ -1,0 +1,160 @@
+<!-- <div class="login bgimg" style="background-image: url('assets/images/bg.jpg');">
+    <br/><br/>
+    <div class="headingLogin">
+        <br/><h3>Sign in to WeatherApp</h3>
+    </div>
+    <form (ngSubmit)="checkLogin(mail,pass)">
+        <div class="card align-items-center container containerLogin">
+            <br/><div class="formElements">
+                <div *ngIf=invalidLogin class="text-danger">
+                        <br/>{{errorMessage}}<br/><br/>
+                </div>
+                
+                <div class="mailId">
+                    <label>Mail ID</label>
+                    <input type="email" required class="form-control" name="mailid" 
+                        [(ngModel)]=mailid #mail="ngModel" email>
+                    
+                    <div *ngIf="mail.invalid; else elseBlock" class="text-danger warningMessage">
+                        <div *ngIf="mail.errors.email && !mail.errors.minlength">
+                            Enter a valid Mail ID
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="password">
+                    <br/><label>Password</label>
+                    <input type="password" class="form-control" name="password" 
+                        [(ngModel)]="password" #pass="ngModel" required>
+                </div>
+            </div>
+            
+            <br/><button type="submit" [disabled]="checkValidLogin(mail,pass)" class="btn btn-primary">Login</button><br/>
+        </div>
+    </form>
+
+</div> -->
+
+<div *ngIf=switchToLoginPage class="login bgimg" style="background-image: url('assets/images/bg.jpg');">
+    <br/><br/><br/><br/>
+        <form (ngSubmit)="checkLogin(mail,pass)">
+            <div class="card align-items-center container containerLogin">
+                <div class="formElements">
+                    <div *ngIf=invalidLogin class="text-danger">
+                            <br/> {{errorMessage}}<br/><br/>
+                    </div>
+                    
+                    <div class="mailId">
+                        <label>Mail ID</label>
+                        <input type="email" required class="form-control" name="mailid" 
+                            [(ngModel)]=mailid #mail="ngModel" minlength="3" email>
+                        
+                        <div *ngIf="mail.invalid; else elseBlock" class="text-danger warningMessage">
+                            <div *ngIf="mail.errors.minlength">
+                                Minimum 3 character required
+                            </div>
+                            <div *ngIf="mail.errors.email && !mail.errors.minlength">
+                                Enter a valid Mail ID
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="password">
+                        <br/><label>Password</label>
+                        <input type="password" class="form-control" name="password" 
+                            [(ngModel)]="password" #pass="ngModel" required minlength="3">
+    
+                        <div *ngIf="pass.invalid" class="text-danger warningMessage">
+                            <div *ngIf="pass.errors.minlength">
+                                Minimum 3 character required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <br/><button type="submit" [disabled]="checkValidLogin(mail,pass)" class="btn btn-primary">Login</button><br/>
+                <p>
+                    If you don't have an account
+                    <a (click)=switchToRegister() class="registerButton">Register</a>
+                </p>
+            </div>
+        </form>
+    
+    </div>
+    
+    
+    <div *ngIf=!switchToLoginPage class="register bgimg" style="background-image: url('assets/images/bg.jpg');">
+        <br/><br/>
+    
+        <form (ngSubmit)="registerNewUser()">
+            <div class="card align-items-center container containerRegister">
+                <div class="formElements">
+                <div *ngIf=invalidUser class="text-danger warningMessage">
+                        {{errorMessage}}
+                </div>
+                
+                <div class="mailId">
+                        <label>Mail ID</label>
+                        <input type="email" required class="form-control" name="mailid" 
+                            [(ngModel)]=mailid #mail="ngModel" email>
+                        
+                        <div *ngIf="mail.invalid" class="text-danger warningMessage">
+                            <div *ngIf="mail.errors.email">
+                                Enter a valid Mail ID
+                            </div>
+                        </div>
+                </div>
+    
+    
+                <div class="username">
+                    <br/><label >UserName</label>
+                    <input type="text" required class="form-control" name="username" 
+                        [(ngModel)]="username" #user="ngModel" minlength="3">
+    
+                    <div *ngIf="user.invalid" class="text-danger warningMessage">
+                        <div *ngIf="true && user.errors.minlength">
+                            Minimum 3 character required
+                        </div>
+                    </div>
+                </div>
+    
+    
+                <div class="phone">
+                    <br/><label >Phone Number</label>
+                    <input type="text" required class="form-control" name="phone"  
+                    [(ngModel)]="phone" #ph="ngModel" pattern="[0-9]*" minlength="10" maxlength="10" >
+    
+                    <div *ngIf="ph.invalid" class="text-danger warningMessage">
+                        <div *ngIf="ph.errors.pattern">
+                            Phone number should have digits only
+                        </div>
+                        <div *ngIf="ph.errors.minlength && !ph.errors.pattern">
+                            Minimum 10 digits required
+                        </div>
+                    </div>
+                </div>
+                
+    
+                <div class="password">
+                    <br/><label>Password</label>
+                    <input type="password" required class="form-control" name="password" [(ngModel)]="password" #pass="ngModel">
+    
+                    
+                    <div *ngIf="pass.invalid" class="text-danger warningMessage">
+                        <div *ngIf="pass.errors.pattern">
+                            Password doesn't match the pattern
+                        </div>
+                    </div>
+                </div>
+                </div>
+                
+                <br/><button type="submit" [disabled]="checkValidUser(mail,user,ph,pass)" class="btn btn-primary">Register</button><br/><br/>
+                <p>
+                    If you already have an account
+                    <a (click)=switchToLogin() class="loginButton">Login</a>
+                </p>  
+            </div>
+        </form>
+    
+    </div>
+    

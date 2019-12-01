@@ -1,0 +1,40 @@
+<div class="bgimg" style="background-image: url('assets/images/sunset.jpg');">
+    <div class="container">
+            <br><br>
+        <div class="top-element">
+            <fa-icon [icon]="faCloud" size="3x" [styles]="{'color': 'white'}"></fa-icon>
+            <div class="climate" >{{this.description}}</div>        
+            <div class="city" >{{this.cityFetch}}</div>     
+            <div class="temp" >{{this.celcius}}<span>&#176;</span>C</div>
+        </div>
+
+        <div class="center-container">
+            <div class="input-group input-group-lg">
+                <input type="text" class="form-control" name="city" 
+                [(ngModel)]="city" #cityname="ngModel" aria-label="Large" 
+                placeholder="Enter City" aria-describedby="inputGroup-sizing-sm" required>
+                <button type="submit" (click)="getDataCity(city)" class="btn btn-success">search</button>
+            </div>
+        </div>
+
+        <div class="left-container">
+                <div class="side-param">Humidity</div>  
+                <div class="side-value">{{this.humidity}}%</div><br>
+
+                <div class="side-param">Air Pollution</div>  
+                <div class="side-value">{{this.api}} PPM</div><br>
+
+                <div class="side-param">Wind Speed</div>  
+                <div class="side-value">{{this.pressure}} mb</div>
+        </div>
+        <br><br><br>
+        <div class="bottom-element d-flex flex-row bd-highlight mb-3">
+            <div *ngFor="let x of upcomingCelcius" class="bottom-card">                     
+                <div class="time">{{x.time}}</div>                    
+                <div class="city">{{x.description}}</div>     
+                <div class="temp">{{x.temp}}<span>&#176;</span>C</div>
+            </div>
+        </div>
+        
+    </div>
+</div>

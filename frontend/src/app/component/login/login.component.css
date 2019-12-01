@@ -1,0 +1,77 @@
+/* login */
+
+.headingLogin{
+    text-align: center;
+    color:white;
+}
+.containerLogin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4%;
+    width: 20rem;
+    height:20rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);    
+    background: rgba(0, 0, 0, 0.7);
+    color:white;
+}
+.alertLogin{
+    margin-top:25px;
+}
+.registerButton {
+    color:#4286f4 !important;
+    cursor: pointer;
+}
+
+/* register */
+
+.headingRegister{
+    text-align: center;
+}
+.containerRegister {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2%;
+    width: 21rem;
+    height:35rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background: rgba(0, 0, 0, 0.7);
+    color:white;
+}
+.loginButton {
+    color:#4286f4 !important;
+    cursor: pointer;
+}
+.alertRegister{
+    margin-top:25px;
+}
+
+.warningMessage{
+    font-size: 13px;
+}
+
+.passwordTooltip{
+    margin-top:-15%;
+    float:right;
+    margin-right: 4%;
+}
+
+.passwordTooltip :hover{
+background-color:blue;
+}
+
+input{
+    width:100%;
+}
+label{    
+    font-weight: bold;
+}
+.bgimg 
+{    
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
+  background-size: 100% 100%;
+  height:695px;
+}

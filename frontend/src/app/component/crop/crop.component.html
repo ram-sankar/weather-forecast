@@ -1,0 +1,26 @@
+<div class="bgimg" style="background-image: url('assets/images/crop1.jpeg');">
+   
+  <br><br><br>
+  <div class="container">
+    <div class="d-flex justify-content-center crop-header">
+      <h2>Recent crop advisory for {{this.cityN}}</h2>
+    </div>
+    
+    <div class="center-container">
+        <div class="input-group input-group-lg">
+            <input type="text" class="form-control" name="city" 
+            [(ngModel)]="city" #cityname="ngModel" aria-label="Large" 
+            placeholder="Enter City" aria-describedby="inputGroup-sizing-sm" required>
+            <button type="submit" (click)="getCropCity(city)" class="btn btn-success">search</button>
+        </div>
+    </div><br><br><br><br><br>
+
+    <div class="content">
+      <div *ngFor="let x of cropList">
+        <div class="crop-name d-flex justify-content-center crop-header text-highlight">{{x.name}}</div>
+        <div class="crop-desc"><div class="text-highlight">Description : </div>{{x.description}}</div>
+        <div class="crop-weather"><div class="text-highlight">Weather : </div>{{x.weather}}</div><br>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+.login-btn
+{
+    margin-right:5%;
+}
+.navbar-brand
+{
+    margin-left: 5%;
+}
+.navbar{
+    background: rgba(0, 0, 0, 0.3);
+}
+.username
+{
+    color:white;
+    margin-right:20px;
+}
+.navbarListLogout
+{
+    color:white !important;
+}
